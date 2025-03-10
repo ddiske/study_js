@@ -2,7 +2,7 @@ import {num, ar, f2} from './data1.js';
 import {f1 as f, n1 as n} from './data2.js';
 import * as a from './data3.js';
 
-// default를 import시 중괄호 생략략
+// default를 import시 중괄호 생략
 import data4 from './data4.js';
 
 const btn = document.getElementById("btn");
