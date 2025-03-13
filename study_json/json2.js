@@ -1,0 +1,30 @@
+const result = document.getElementById("result")
+const getList = document.getElementById("getList")
+const table = document.createElement("table")
+table.appendChild(document.createElement("thead")).setAttribute("id", "thead")
+table.appendChild(document.createElement("tbody")).setAttribute("id", "tb")
+table.setAttribute("class", "table table-striped")
+
+getList.addEventListener("click", ()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(r=>r.json())
+    .then(r=>{
+        result.appendChild(table)
+        let thead = document.getElementById("thead")
+        thead.appendChild(document.createElement("tr")).setAttribute("id", "th")
+        let th = document.getElementById("th")
+        th.appendChild(document.createElement("th")).append("userId")
+        th.appendChild(document.createElement("th")).append("id")
+        th.appendChild(document.createElement("th")).append("title")
+        th.appendChild(document.createElement("th")).append("body")
+        let tb = document.getElementById("tb")
+        r.forEach((element, idx) => {
+            tb.appendChild(document.createElement("tr")).setAttribute("id", "tr"+idx)
+            let td = document.getElementById("tr"+idx)
+            td.appendChild(document.createElement("td")).append(element.userId)
+            td.appendChild(document.createElement("td")).append(element.id)
+            td.appendChild(document.createElement("td")).append(element.title)
+            td.appendChild(document.createElement("td")).append(element.body)
+        });
+    })
+})
