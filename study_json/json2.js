@@ -32,6 +32,7 @@ getList.addEventListener("click", ()=>{
             a.setAttribute("data-bs-toggle", "modal")
             a.setAttribute("data-bs-target", "#exampleModal")
             a.setAttribute("id", element.id)
+            a.href = "#"
             a.classList.add("ti")
             
             let t3 = td.appendChild(document.createElement("td"))
@@ -57,10 +58,10 @@ result.addEventListener("click", (e)=>{
 function modalClick(num){
     fetch('https://jsonplaceholder.typicode.com/posts/'+num)
     .then(r=>r.json())
-    .then(json=>{
-        t_title.innerText=json.title
-        t_body.innerText=json.body
-        t_id.innerText=json.userId+"_"+json.id
+    .then(r=>{
+        t_title.innerText=r.title
+        t_body.innerText=r.body
+        t_id.innerText=r.userId+"_"+r.id
     })
 }
 
